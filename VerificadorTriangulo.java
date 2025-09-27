@@ -6,35 +6,35 @@ public class VerificadorTriangulo {
     public static void main(String[] args) {
         Scanner ler = new Scanner(System.in);
         
-        System.out.println("==== VERIFICADOR DE TRIÂNGULO ====");
-        System.out.println("Digite as medidas dos três lados: ");
+        System.out.println("\n ==== VERIFICADOR DE TRIÂNGULO ====");
+        System.out.println(" Digite as medidas dos três lados: ");
 
         // Le os três lados
-        System.out.print("Lado 1: ");
+        System.out.print("\n Lado 1: ");
         double lado1 = ler.nextDouble();
 
-        System.out.print("Lado 2: ");
+        System.out.print(" Lado 2: ");
         double lado2 = ler.nextDouble();
 
-        System.out.print("Lado 3: ");
+        System.out.print(" Lado 3: ");
         double lado3 = ler.nextDouble();
 
         // Valida os valores positivos
         if (lado1 <= 0 || lado2 <= 0 || lado3 <= 0) {
-            System.out.println("\nERRO: Todos os lados devem ser valores positivos!");
+            System.out.println("\n ERRO: Todos os lados devem ser valores positivos!");
             ler.close();
         }
 
         // Verifica a condição do triângulo (cada lado deve ser menor que a soma dos outros dois)
         if (verificaTriangulo(lado1, lado2, lado3)) {
-            System.out.println("/n ✓ Os lados formam um triângulo!");
+            System.out.println("\n ✓ Os lados formam um triângulo!");
 
             // Classifica o tipo do triângulo (equilátero, isósceles e escaleno)
             String tipo = classificaTriangulo(lado1, lado2, lado3);
-            System.out.println("Classificação: " + tipo);
+            System.out.println(" Classificado como " + tipo);
         } else {
-            System.out.println("/n ✗ Os lados NÃO formam um triângulo!");
-            System.out.println("/n Lembre-se: para que seja um triângulo, cada lado deve ser menor que a soma dos outros dois.");
+            System.out.println("\n ✗ Os lados NÃO formam um triângulo!");
+            System.out.println("\n Lembre-se: para que seja um triângulo, cada lado deve ser menor que a soma dos outros dois.");
         }
 
         ler.close();
