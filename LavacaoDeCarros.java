@@ -4,15 +4,31 @@ import java.util.Scanner;
 public class LavacaoDeCarros {
     
     public static void main(String[] args) {
-        
-        Scanner entrada = new Scanner(System.in);
-        
+
         // Solicita a quantidade de atendimentos
+        Scanner entrada = new Scanner(System.in);
+int quantidade = 0;
+boolean entradaValida = false;
+
+while (!entradaValida) {
+    try {
         System.out.print("Informe a quantidade de atendimentos: ");
-        int quantidade = entrada.nextInt();
-        entrada.nextLine(); 
+        quantidade = entrada.nextInt();
+        entrada.nextLine(); // Limpa o buffer
         
-        // Variáveis para armazenar os dados de cada atendimento
+        if (quantidade > 0) {
+            entradaValida = true;
+        } else {
+            System.out.println("A quantidade deve ser maior que zero!");
+        }
+        
+    } catch (Exception erro) {
+        System.out.println("Digite apenas números inteiros!");
+        entrada.nextLine();
+    }
+}
+        
+        // arrays para armazenar os dados de cada atendimento
         String[] nomes = new String[quantidade];
         int[] veiculos = new int[quantidade];
         int[] servicos = new int[quantidade];
@@ -31,7 +47,7 @@ public class LavacaoDeCarros {
         // Variável para somar o valor total
         int valorTotal = 0;
         
-        // Loop para processar cada atendimento
+        // Loop for para processar cada atendimento
         System.out.println("\n========== ENTRADA DE DADOS ==========\n");
         
         for (int i = 0; i < quantidade; i++) {
@@ -41,7 +57,7 @@ public class LavacaoDeCarros {
             System.out.print("Nome do cliente: ");
             nomes[i] = entrada.nextLine();
             
-            // Solicita o tipo do veículo com validação
+            // loop While valida o tipo do veículo
             int tipoVeiculo = 0;
             while (tipoVeiculo < 1 || tipoVeiculo > 3) {
                 System.out.print("Tipo do veículo (1-Pequeno, 2-Médio, 3-Grande): ");
@@ -62,7 +78,7 @@ public class LavacaoDeCarros {
                 contadorVeiculo3++;
             }
             
-            // Solicita o tipo do serviço com validação
+            // loop While valida o tipo do servico
             int tipoServico = 0;
             while (tipoServico < 1 || tipoServico > 3) {
                 System.out.print("Tipo do serviço (1-Externa, 2-Externa+Interna, 3-Completa+Cera): ");
